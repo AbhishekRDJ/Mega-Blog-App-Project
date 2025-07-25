@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import LogoutButton from "./Header/logoutButton";
 import Select from "./Select";
 import Button from "./Button";
+import RTE from "./Header/RTE";
 
 
-export { Header, Footer, Container, Logo, LogoutButton, Select, Button };
+export { Header, Footer, Container, Logo, LogoutButton, Select, Button, RTE };
