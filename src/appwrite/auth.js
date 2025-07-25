@@ -7,7 +7,7 @@ class AuthClass {
 
     constructor() {
         this.client
-            .setEndpoint(conf.VITE_APP_APPWRITE_URL)
+            .setEndpoint(conf.VITE_APPWRITE_ENDPOINT)
             .setProject(conf.VITE_APPWRITE_PROJECT_ID);
         this.account = new Account(this.client);
     }

@@ -8,17 +8,17 @@ export class StorageService {
     bucket;
     constructor() {
         this.client
-            .setEndpoint(conf.VITE_APP_APPWRITE_URL)
+            .setEndpoint(conf.VITE_APPWRITE_ENDPOINT)
             .setProject(conf.VITE_APPWRITE_PROJECT_ID);
         this.databases = new Databases(this.client)
         this.bucket = new Storage(this.client)
 
     }
 
-    async createPost({ title, slug, content, featureImage, status, userId }) {
+    async createPost({ title, slug, content, featureImage, Status, userId }) {
         try {
             return await this.databases.createDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug, {
-                title, content, featureImage, status, userId
+                title, content, featureImage, Status, userId
             })
 
         } catch (error) {
@@ -27,10 +27,10 @@ export class StorageService {
         }
 
     }
-    async updatePost(slug, { title, content, featureImage, status }) {
+    async updatePost(slug, { title, content, featureImage, Status }) {
         try {
             return await this.databases.updateDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug, {
-                title, content, featureImage, status
+                title, content, featureImage, Status
             })
 
         } catch (error) {
@@ -58,7 +58,7 @@ export class StorageService {
         }
     }
     async getAllPost({ queries = [
-        Query.equal('status', 'active')
+        Query.equal('Status', 'active')
     ] }) {
         try {
             return await this.databases.listDocuments(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, queries)

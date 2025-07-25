@@ -26,7 +26,7 @@ function App() {
   }, [])
 
   return !loading ? (
-    <div className='bg-amber-200 min-h-screen'>
+    <div className='min-h-screen'>
       <div>
         <Header />
         <main>

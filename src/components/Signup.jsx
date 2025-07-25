@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { login as loginService } from '../appwrite/services/authService'
-import { Button, Select, Logo } from './index'
-import { useDispatch } from 'react-redux'
 import AuthClassObject from '../appwrite/auth'
+import { Button, Select, Logo } from './index'
+import { logout as logoutService } from '../store/authSlice'
+import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
 
@@ -19,7 +19,7 @@ function Signup() {
             const UserData = await AuthClassObject.createAccount(data);
             if (UserData) {
                 const userData = await AuthClassObject.getCurrentUser();
-                if (userData) dispatch(loginService(userData));
+                if (userData) dispatch(logoutService(userData));
                 navigate("/");
             }
 
