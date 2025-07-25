@@ -1,6 +1,6 @@
 // components/Header.jsx
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Logo, LogoutButton, Container } from "../index";
 import { Menu, X } from "lucide-react";

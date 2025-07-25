@@ -11,7 +11,7 @@ export class StorageService {
             .setEndpoint(conf.VITE_APP_APPWRITE_URL)
             .setProject(conf.VITE_APPWRITE_PROJECT_ID);
         this.databases = new Databases(this.client)
-        this.bucket = new this.Storage(this.client)
+        this.bucket = new Storage(this.client)
 
     }
 
