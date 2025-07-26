@@ -3,10 +3,9 @@ import { Mail, Github, Twitter, Linkedin } from 'lucide-react';
 
 function Footer() {
     return (
-        <footer className="bg-gray-900 px-4 py-12 text-white">
+        <footer className="z-100 bg-gray-900 mt-auto px-4 py-12 text-white">
             <div className="mx-auto max-w-6xl">
                 <div className="gap-8 grid grid-cols-1 md:grid-cols-4">
-
                     <div className="col-span-1 md:col-span-2">
                         <h3 className="mb-4 font-bold text-xl">My Blog</h3>
                         <p className="mb-4 text-gray-300">
@@ -22,22 +21,20 @@ function Footer() {
                             <a href="http://linkedin.com/in/abhishek-sangule-07b202319/" className="text-gray-300 hover:text-white transition-colors">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="abhisheksangule6@gmail.com" className="text-gray-300 hover:text-white transition-colors">
+                            <a href="mailto:abhisheksangule6@gmail.com" className="text-gray-300 hover:text-white transition-colors">
                                 <Mail size={20} />
                             </a>
                         </div>
                     </div>
-
                     <div>
                         <h4 className="mb-4 font-semibold text-lg">Quick Links</h4>
                         <ul className="space-y-2">
                             <li><a href="/" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
                             <li><a href="/about" className="text-gray-300 hover:text-white transition-colors">About</a></li>
-                            <li><a href="/login" className="text-gray-300 hover:text-white transition-colors">login</a></li>
+                            <li><a href="/login" className="text-gray-300 hover:text-white transition-colors">Login</a></li>
                             <li><a href="/all-posts" className="text-gray-300 hover:text-white transition-colors">All Posts</a></li>
                         </ul>
                     </div>
-
                     <div>
                         <h4 className="mb-4 font-semibold text-lg">Categories</h4>
                         <ul className="space-y-2">
@@ -48,7 +45,6 @@ function Footer() {
                         </ul>
                     </div>
                 </div>
-
                 <div className="flex md:flex-row flex-col justify-between items-center mt-8 pt-8 border-gray-700 border-t">
                     <p className="mb-4 md:mb-0 text-gray-300 text-sm">
                         © 2025 My Blog. All rights reserved.

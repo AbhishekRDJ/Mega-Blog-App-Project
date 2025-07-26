@@ -1,11 +1,10 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Header, Footer } from './components/index';
+import { Header, Footer, Container } from './components/index';
 import AuthClassObject from './appwrite/auth';
 import { login, logout } from './store/authSlice';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Container } from './components/index';
 
 function App() {
   const navigate = useNavigate();
@@ -31,17 +30,11 @@ function App() {
       });
   }, []);
 
-
-
-
-
-
   useEffect(() => {
     if (!loading && !authStatus) {
       navigate('/login');
     }
   }, [loading, authStatus]);
-
 
   if (loading) {
     return (
@@ -50,24 +43,18 @@ function App() {
           <div className="mb-4 loader" />
           <p className="font-semibold text-xl">Checking session...</p>
         </div>
-
-
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col bg-[#FFFDF6] min-h-screen">
       <Header />
-
-      <Container>
-        <main className="py-4">
-
-
-
+      <main className="flex-grow py-4 overflow-hidden">
+        <Container>
           <Outlet />
-        </main>
-      </Container>
+        </Container>
+      </main>
       <Footer />
     </div>
   );

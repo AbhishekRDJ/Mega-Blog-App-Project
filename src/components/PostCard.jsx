@@ -10,7 +10,7 @@ function PostCard({ $id, Title, Feature_Img, AuthorName }) {
         // console.log("Feature_Img File ID:", Feature_Img),
 
         <Link to={`/post/${$id}`} className="group">
-            <article className="bg-white shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 rounded-2xl overflow-hidden transition-all hover:-translate-y-2 duration-300 transform">
+            <article className="flex flex-col justify-between bg-white shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 rounded-2xl h-[420px] overflow-hidden transition-all hover:-translate-y-2 duration-300 transform">
                 {/* Image Container */}
                 <div className="relative overflow-hidden">
                     {Feature_Img ? (
