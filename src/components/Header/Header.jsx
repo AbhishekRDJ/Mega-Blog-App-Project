@@ -48,6 +48,7 @@ export default function Header() {
 
     return (
         <header className="top-0 z-50 sticky bg-white shadow-sm w-full">
+
             <Container>
                 <div className="flex justify-between items-center mx-auto px-4 py-3 max-w-7xl">
                     <Logo widthprops="200px" />

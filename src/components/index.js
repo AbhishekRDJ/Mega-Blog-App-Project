@@ -1,5 +1,5 @@
 import Header from "./Header/header";
-import Container from "./container/container";
+import Container from "./container/Container";
 import Footer from "./Footer/footer";
 import Logo from "./Logo";
 import LogoutButton from "./Header/logoutButton";
@@ -14,4 +14,19 @@ import PostCard from './PostCard';
 import Protected from './AuthLayout';
 
 
-export { Header, Footer, Container, Logo, LogoutButton, Select, Button, RTE, Signup, Input, Login, PostForm, PostCard, Protected }
+export {
+    Header,
+    Footer,
+    Container,
+    Logo,
+    LogoutButton,
+    Select,
+    Button,
+    RTE,
+    Signup,
+    Input,
+    Login,
+    PostForm,
+    PostCard,
+    Protected,
+};

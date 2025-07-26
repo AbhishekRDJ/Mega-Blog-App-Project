@@ -19,7 +19,7 @@ export default function Protected({ children, Authentication = true }) {
 
     }, [authStatus, navigate, Authentication]);
     return (
-        loading ? <div className='flex justify-center items-center h-screen'>Loading...</div> : children
+        loading ? <div className='flex justify-center items-center bg-amber-300 h-screen'>Loading...</div> : children
     )
 }
 

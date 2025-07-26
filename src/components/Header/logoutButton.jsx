@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import service from '../../appwrite/config';
+import service from '../../appwrite/auth';
 import { logout } from '../../store/authSlice'
 function LogoutButton() {
 
@@ -15,7 +15,7 @@ function LogoutButton() {
     }
     return (
         <button
-            className=''
+            className='hidden md:flex justify-center items-center bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white transition'
             onClick={logoutHandler}>Logout</button>
     )
 }

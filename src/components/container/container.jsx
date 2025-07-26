@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Container({ childer }) {
+function Container({ children }) {
     return (
-        <div className='mx-auto px-4 w-full max-w-7xl'>{childer}</div>
+        <div className='mx-auto px-4 w-full max-w-7xl'>{children}</div>
     )
 }
 

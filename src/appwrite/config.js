@@ -17,9 +17,14 @@ export class StorageService {
 
     async createPost({ title, slug, content, featureImage, Status, userId }) {
         try {
-            return await this.databases.createDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug, {
-                title, content, featureImage, Status, userId
-            })
+            return await this.databases.createDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug, // used as the document ID
+                {
+                    Title: title,
+                    Content: content,
+                    Feature_Img: featureImage,
+                    Status: Status,
+                    UserId: userId,
+                })
 
         } catch (error) {
             console.log(error)
@@ -29,9 +34,13 @@ export class StorageService {
     }
     async updatePost(slug, { title, content, featureImage, Status }) {
         try {
-            return await this.databases.updateDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug, {
-                title, content, featureImage, Status
-            })
+            return await this.databases.updateDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug,
+                {
+                    Title: title,
+                    Content: content,
+                    Feature_Img: featureImage,
+                    Status: Status,
+                })
 
         } catch (error) {
             console.log(error)
@@ -71,12 +80,17 @@ export class StorageService {
     }
     async uploadFile(file) {
         try {
-            await this.bucket.createFile(conf.VITE_APPWRITE_BUCKET_ID, ID.unique(), file,)
+            return await this.bucket.createFile(
+                conf.VITE_APPWRITE_BUCKET_ID,
+                ID.unique(),
+                file
+            );
         } catch (error) {
-            console.log(error)
-            throw error
+            console.log(error);
+            throw error;
         }
     }
+
     async deleteFile(fileID) {
         try {
             await this.bucket.deleteFile(conf.VITE_APPWRITE_BUCKET_ID, fileID)
@@ -86,9 +100,13 @@ export class StorageService {
         }
     }
 
-    getFilePreview(fileId) {
+    getFileURL(fileId) {
+        if (!fileId) {
+            console.error("File ID is missing");
+            return;
+        }
         try {
-            return this.bucket.getFilePreview(conf.VITE_APPWRITE_BUCKET_ID, fileId)
+            return this.bucket.getFileView(conf.VITE_APPWRITE_BUCKET_ID, fileId)
         } catch (error) {
             console.log(error)
             throw error

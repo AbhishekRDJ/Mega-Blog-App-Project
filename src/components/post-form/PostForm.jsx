@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
-function PostForm(Post) {
+function PostForm({ Post = {} }) {
+
     const navigate = useNavigate();
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
@@ -14,14 +15,14 @@ function PostForm(Post) {
             slug: Post?.slug || "",
             content: Post?.content || "",
             featureImage: Post?.featureImage || "",
-            status: Post?.status || "draft"
+            Status: Post?.Status || "draft"
 
         }
     })
-    const userData = useSelector((state) => state.user.userData);
+    const userData = useSelector((state) => state.auth?.userData);
     const onSubmit = async (data) => {
 
-        if (Post) {
+        if (Post?.$id) {
             const file = data.image[0] ? service.uploadFile(data.image[0]) : null
             if (file) {
                 service.deleteFile(data.featureImage)
@@ -100,12 +101,12 @@ function PostForm(Post) {
                     type="file"
                     className="mb-4"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
-                    {...register("image", { required: !Post })}
+                    {...register("image", { required: !Post?.$id })}
                 />
-                {Post && (
+                {Post && Post.featureImage && (
                     <div className="mb-4 w-full">
                         <img
-                            src={service.getFilePreview(Post.featuredImage)}
+                            src={service.getFileURL(Post.featuredImage)}
                             alt={Post.title}
                             className="rounded-lg"
                         />
@@ -115,9 +116,9 @@ function PostForm(Post) {
                     options={["active", "inactive"]}
                     label="Status"
                     className="mb-4"
-                    {...register("status", { required: true })}
+                    {...register("Status", { required: true })}
                 />
-                <Button type="submit" bgColor={Post ? "bg-green-500" : undefined} className="w-full">
+                <Button onClick={handleSubmit(onSubmit)} type="submit" bgColor={Post ? "bg-green-500" : undefined} className="w-full h-10">
                     {Post ? "Update" : "Submit"}
                 </Button>
             </div>
