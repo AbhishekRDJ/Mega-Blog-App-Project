@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import { useSelector } from 'react-redux'
-
-export default function Protected({ children, Authentication = true }) {
-    const navigate = useNavigate();
+import { Navigate } from 'react-router-dom';
+export default function Protected({ children, authentication = true }) {
     const authStatus = useSelector((state) => state.auth.status);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        if (!authStatus && Authentication) {
-            navigate('/login');
-        }
-        if (authStatus && !Authentication) {
-            navigate('/');
-        }
-        setLoading(false);
-
-
-    }, [authStatus, navigate, Authentication]);
-    return (
-        loading ? <div className='flex justify-center items-center bg-amber-300 h-screen'>Loading...</div> : children
-    )
+    if (authentication) {
+        return authStatus ? children : <Navigate to="/login" replace />;
+    } else {
+        return !authStatus ? children : <Navigate to="/" replace />;
+    }
 }
 

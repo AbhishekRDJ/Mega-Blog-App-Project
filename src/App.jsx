@@ -31,14 +31,18 @@ function App() {
       });
   }, []);
 
-  // 👇 Redirect to login after loading completes and user is NOT authenticated
+
+
+
+
+
   useEffect(() => {
     if (!loading && !authStatus) {
       navigate('/login');
     }
   }, [loading, authStatus]);
 
-  // 👇 Loading spinner UI
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -46,16 +50,21 @@ function App() {
           <div className="mb-4 loader" />
           <p className="font-semibold text-xl">Checking session...</p>
         </div>
+
+
       </div>
     );
   }
 
-  // 👇 App layout
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
+
       <Container>
-        <main className="py-20">
+        <main className="py-4">
+
+
+
           <Outlet />
         </main>
       </Container>

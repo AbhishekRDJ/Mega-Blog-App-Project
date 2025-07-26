@@ -4,6 +4,7 @@ import service from '../appwrite/config'
 
 function Home() {
     const [posts, setPosts] = useState([])
+
     useEffect(() => {
         service.getAllPost([]).then((post) => {
             if (post) {
@@ -11,17 +12,16 @@ function Home() {
             }
         })
     }, [])
+
     return (
-        <div className='py-8 w-full'>
-            {/* <Container> */}
-            <div className='flex flex-wrap'>
-                {posts.map((post) => (
-                    <div key={post.$id} className='p-2 w-1/4'>
-                        <PostCard {...post} />
-                    </div>
-                ))}
-            </div>
-            {/* </Container> */}
+        <div className="py-8 w-full h-screen">
+            <Container>
+                <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {posts.map((post) => (
+                        <PostCard key={post.$id} {...post} />
+                    ))}
+                </div>
+            </Container>
         </div>
     )
 }

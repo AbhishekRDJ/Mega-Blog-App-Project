@@ -9,7 +9,7 @@ function PostCard({ $id, Title, Feature_Img }) {
     return (
         // console.log("Feature_Img File ID:", Feature_Img),
 
-        <Link to={`/post/${$id}`} className="group block">
+        <Link to={`/post/${$id}`} className="group">
             <article className="bg-white shadow-lg hover:shadow-2xl border border-gray-100 hover:border-gray-200 rounded-2xl overflow-hidden transition-all hover:-translate-y-2 duration-300 transform">
                 {/* Image Container */}
                 <div className="relative overflow-hidden">
@@ -20,10 +20,8 @@ function PostCard({ $id, Title, Feature_Img }) {
                                 alt={Title || 'Post'}
                                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                             />
-                            {/* Gradient overlay on hover */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                            {/* Read more indicator */}
                             <div className="right-4 bottom-4 absolute opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform">
                                 <div className="bg-white/90 shadow-lg backdrop-blur-sm p-2 rounded-full">
                                     <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,15 +43,13 @@ function PostCard({ $id, Title, Feature_Img }) {
                         </div>
                     )}
                 </div>
-
-                {/* Content Container */}
+                \
                 <div className="p-6">
-                    {/* Title */}
+
                     <h2 className="mb-3 font-bold text-gray-900 group-hover:text-blue-600 text-xl line-clamp-2 transition-colors duration-200">
                         {Title || 'Untitled Post'}
                     </h2>
 
-                    {/* Read more text */}
                     <div className="flex items-center opacity-0 group-hover:opacity-100 font-medium text-blue-600 text-sm transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform">
                         <span>Read more</span>
                         <svg className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,7 +58,6 @@ function PostCard({ $id, Title, Feature_Img }) {
                     </div>
                 </div>
 
-                {/* Bottom accent line */}
                 <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 h-1 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 transform"></div>
             </article>
         </Link>

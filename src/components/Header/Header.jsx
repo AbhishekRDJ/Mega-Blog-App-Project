@@ -11,10 +11,11 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
-        { name: "Home", href: "/" },
-        { name: "Features", href: "/features", protected: true },
-        { name: "About", href: "/about", protected: true },
-        { name: "Contact", href: "/contact", protected: true },
+        { name: "Home", href: "/", protected: true },
+        { name: "About", href: "/about" },
+        { name: "Add-post", href: "/add-post", protected: true },
+        { name: "All-posts", href: "/all-posts", protected: true },
+        { name: "Signup", href: "/signup", protected: true },
     ];
 
     const visibleLinks = navLinks.filter(
@@ -57,7 +58,6 @@ export default function Header() {
                         <NavLinks />
                     </nav>
 
-                    {/* Mobile Menu Button */}
                     <button
                         className="md:hidden"
                         onClick={() => setIsOpen(!isOpen)}
@@ -67,7 +67,6 @@ export default function Header() {
                     </button>
                 </div>
 
-                {/* Mobile Nav */}
                 {isOpen && (
                     <div className="md:hidden bg-white px-4 pb-4">
                         <NavLinks isMobile />

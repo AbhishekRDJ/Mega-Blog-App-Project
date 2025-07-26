@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { login as loginService } from '../store/authSlice';
 import AuthClassObject from '../appwrite/auth';
 import { Logo, Button } from './index';
+import Spline from '@splinetool/react-spline';
+
 
 function Login() {
     const [error, setError] = useState(null);
@@ -28,10 +30,9 @@ function Login() {
     };
 
     return (
-        <div className="flex justify-center items-center bg-gradient-to-r from-blue-500 to-pink-500 px-4 min-h-screen">
+        <div className="flex justify-center items-center bg-gradient-to-r from-blue-500 to-pink-500 mx-auto px-4 rounded-4xl max-w-screen h-20 min-h-screen">
             <div className="flex bg-white shadow-lg rounded-3xl w-full max-w-5xl overflow-hidden">
 
-                {/* Left Form Section */}
                 <div className="p-10 w-full md:w-1/2">
                     <div className="mb-8">
                         <div className="mb-2 font-bold text-pink-400 text-2xl">Logo Here</div>
@@ -75,10 +76,8 @@ function Login() {
                         </Button>
                     </form>
 
-                    {/* Divider */}
                     <div className="my-6 text-gray-500 text-sm text-center">or continue with</div>
 
-                    {/* Social Logins */}
                     <div className="flex justify-center gap-4">
                         <button className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10">
                             <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google" className="w-5 h-5" />
@@ -91,16 +90,15 @@ function Login() {
                         </button>
                     </div>
 
-                    {/* Sign up link */}
                     <p className="mt-4 text-gray-500 text-sm text-center">
                         Don’t have an account yet? <Link to="/signup" className="font-medium text-pink-500 hover:underline">Sign up for free</Link>
                     </p>
                 </div>
-
-                {/* Right Illustration Section */}
-                <div className="hidden relative md:flex justify-center items-center bg-blue-100 w-1/2">
-                    <img src="/login-girl.png" alt="Illustration" className="w-80" />
+                <div className="relative md:flex justify-center items-center bg-blue-100 w-1/2">
+                    <div className="w-full h-full">
+                        <iframe src='https://my.spline.design/draganddropbookpencilschoolcopy-QhA1Iuir8KecLXxcT4dz70zb/' frameborder='0' width='100%' height='100%'></iframe></div>
                 </div>
+
             </div>
         </div>
     );
