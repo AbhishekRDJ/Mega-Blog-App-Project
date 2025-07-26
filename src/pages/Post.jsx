@@ -4,20 +4,31 @@ import service from "../appwrite/config";
 import { Button, Container } from "../components/index";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import { Edit, Delete } from "lucide-react";
+import EditPost from "./EditPost";
+
+
 
 export default function Post() {
+
     const [post, setPost] = useState(null);
+    const [authername, setAutherName] = useState('');
     const { slug } = useParams();
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
-
-    const isAuthor = post && userData ? post.userId === userData.$id : false;
+    const isAuthor = post && userData ? post.UserId === userData.$id : false;
 
     useEffect(() => {
         if (slug) {
             service.getPost(slug).then((post) => {
                 if (post) setPost(post);
+                if (userData.authername) {
+                    setAutherName(userData.authername);
+                }
+                else if (userData.name) {
+                    setAutherName(userData.name);
+                }
                 else navigate("/");
             });
         } else navigate("/");
@@ -62,21 +73,25 @@ export default function Post() {
 
                     {/* Author Actions - Floating buttons */}
                     {isAuthor && (
-                        <div className="top-6 right-6 absolute flex gap-3">
-                            <Link to={`/edit-post/${post.$id}`}>
+                        console.log("Feature_Img File ID:", post.$id),
+                        <div className="top-6 right-6 absolute flex gap-3 text-white">
+                            {/* <Route path="/edit-post/:slug" element={<EditPost />} /> */}
+
+                            <Link to={`/edit-post/${slug}`}>
                                 <Button
                                     bgColor="bg-emerald-500 hover:bg-emerald-600"
                                     className="bg-emerald-500/90 shadow-lg hover:shadow-xl backdrop-blur-sm px-6 py-2 border border-white/20 rounded-full font-semibold text-white hover:scale-105 transition-all duration-200"
                                 >
-                                    ✏️ Edit
+                                    <Edit className="w-5 h-5" />
                                 </Button>
                             </Link>
                             <Button
-                                bgColor="bg-red-500 hover:bg-red-600"
+
                                 onClick={deletePost}
                                 className="bg-red-500/90 shadow-lg hover:shadow-xl backdrop-blur-sm px-6 py-2 border border-white/20 rounded-full font-semibold text-white hover:scale-105 transition-all duration-200"
                             >
-                                🗑️ Delete
+                                delete
+                                <Delete className="w-5 h-5" />
                             </Button>
                         </div>
                     )}
@@ -104,7 +119,7 @@ export default function Post() {
                                     year: 'numeric',
                                     month: 'long',
                                     day: 'numeric'
-                                }) : 'Published'}
+                                }) : `Published  ||   Author: ${authername}`}
                             </time>
                         </div>
                     </header>

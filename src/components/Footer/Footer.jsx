@@ -13,16 +13,16 @@ function Footer() {
                             Sharing thoughts, insights, and stories about technology, life, and everything in between.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                            <a href="https://x.com/AbhishekRDJ" className="text-gray-300 hover:text-white transition-colors">
                                 <Twitter size={20} />
                             </a>
-                            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                            <a href="https://github.com/AbhishekRDJ" className="text-gray-300 hover:text-white transition-colors">
                                 <Github size={20} />
                             </a>
-                            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                            <a href="http://linkedin.com/in/abhishek-sangule-07b202319/" className="text-gray-300 hover:text-white transition-colors">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                            <a href="abhisheksangule6@gmail.com" className="text-gray-300 hover:text-white transition-colors">
                                 <Mail size={20} />
                             </a>
                         </div>

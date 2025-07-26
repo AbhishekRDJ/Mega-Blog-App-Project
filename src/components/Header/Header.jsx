@@ -28,19 +28,19 @@ export default function Header() {
     };
 
     const NavLinks = ({ isMobile = false }) => (
-        <div className={`space-${isMobile ? "y" : "x"}-${isMobile ? "2" : "6"} ${isMobile ? "flex flex-col" : "flex"}`}>
+        <div className={`  space-${isMobile ? "y" : "x"}-${isMobile ? "2" : "6"} ${isMobile ? "flex flex-col" : "flex"}`}>
             {visibleLinks.map((link) => (
                 <button
                     key={link.name}
                     onClick={() => handleNavigation(link.href)}
-                    className="font-medium text-gray-700 hover:text-blue-600 transition"
+                    className="font-medium text-gray-700 hover:text-blue-600 transition cursor-pointer"
                 >
                     {link.name}
                 </button>
             ))}
 
             {authstatus && (
-                <div className={isMobile ? "pt-2" : "pl-4"}>
+                <div className={isMobile ? "pt-2 " : "pl-4 "}>
                     <LogoutButton />
                 </div>
             )}
@@ -48,11 +48,15 @@ export default function Header() {
     );
 
     return (
-        <header className="top-0 z-50 sticky bg-white shadow-sm w-full">
+        <header className="top-0 z-50 sticky bg-gray-50 shadow-sm w-full">
 
             <Container>
-                <div className="flex justify-between items-center mx-auto px-4 py-3 max-w-7xl">
-                    <Logo widthprops="200px" />
+                <div className="flex justify-between items-center mx-auto px-4 py-3 max-w-9xl">
+                    <div className="flex items-center gap-4">
+                        {/* <img src="logo2.png" alt="logo" className="w-auto h-10 object-contain" /> */}
+                        <Logo widthprops="150px" />
+                    </div>
+
 
                     <nav className="hidden md:flex items-center">
                         <NavLinks />

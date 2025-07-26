@@ -15,23 +15,27 @@ export class StorageService {
 
     }
 
-    async createPost({ title, slug, content, featureImage, Status, userId }) {
+    async createPost({ title, slug, content, featureImage, Status, userId, AuthorName }) {
         try {
-            return await this.databases.createDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug, // used as the document ID
+            return await this.databases.createDocument(
+                conf.VITE_APPWRITE_DATABASE_ID,
+                conf.VITE_APPWRITE_COLLECTION_ID,
+                slug,
                 {
                     Title: title,
                     Content: content,
                     Feature_Img: featureImage,
                     Status: Status,
                     UserId: userId,
-                })
-
+                    AuthorName: AuthorName
+                }
+            )
         } catch (error) {
             console.log(error)
             throw error
         }
-
     }
+
     async updatePost(slug, { title, content, featureImage, Status }) {
         try {
             return await this.databases.updateDocument(conf.VITE_APPWRITE_DATABASE_ID, conf.VITE_APPWRITE_COLLECTION_ID, slug,

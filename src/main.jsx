@@ -12,13 +12,19 @@ import AddPost from "./pages/AddPost";
 import Signup from './pages/Signup'
 import EditPost from "./pages/EditPost";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 import Post from "./pages/Post";
 
 import AllPosts from "./pages/AllPost";
 const router = createBrowserRouter([
-  {
 
+  {
+    path: "/about",
+    element: <About />,
+    errorElement: <div>Page not found</div>
+  },
+  {
     path: "/",
     element: <App />,
     children: [
@@ -79,6 +85,7 @@ const router = createBrowserRouter([
       },
     ],
   }
+
 ])
 
 createRoot(document.getElementById('root')).render(

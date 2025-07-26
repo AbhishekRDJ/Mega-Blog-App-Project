@@ -15,7 +15,7 @@ function PostForm({ Post = {} }) {
             slug: Post?.slug || "",
             content: Post?.content || "",
             featureImage: Post?.featureImage || "",
-            Status: Post?.Status || "draft"
+            Status: Post?.Status || "draft",
 
         }
     })
@@ -43,7 +43,8 @@ function PostForm({ Post = {} }) {
                 data.featureImage = file.$id
                 const DbPost = await service.createPost({
                     ...data,
-                    userId: userData.$id
+                    userId: userData.$id,
+                    AuthorName: userData.name
                 })
                 if (DbPost) {
                     navigate(`/post/${DbPost.$id}`)
@@ -106,7 +107,8 @@ function PostForm({ Post = {} }) {
                 {Post && Post.featureImage && (
                     <div className="mb-4 w-full">
                         <img
-                            src={service.getFileURL(Post.featuredImage)}
+                            src={service.getFileURL(Post.featureImage)}
+
                             alt={Post.title}
                             className="rounded-lg"
                         />

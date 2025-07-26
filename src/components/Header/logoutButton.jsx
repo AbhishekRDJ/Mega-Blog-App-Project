@@ -15,7 +15,7 @@ function LogoutButton() {
     }
     return (
         <button
-            className='hidden md:flex justify-center items-center bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white transition'
+            className='hidden md:flex justify-center items-center bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white transition cursor-pointer'
             onClick={logoutHandler}>Logout</button>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import service from '../appwrite/config'
 import { Link } from 'react-router-dom'
 
-function PostCard({ $id, Title, Feature_Img }) {
+function PostCard({ $id, Title, Feature_Img, AuthorName }) {
     // const imageUrl = service.getFileURL(Feature_Img);
     // console.log("Image preview URL:", imageUrl);
 
@@ -49,6 +49,7 @@ function PostCard({ $id, Title, Feature_Img }) {
                     <h2 className="mb-3 font-bold text-gray-900 group-hover:text-blue-600 text-xl line-clamp-2 transition-colors duration-200">
                         {Title || 'Untitled Post'}
                     </h2>
+                    <h4>{AuthorName}</h4>
 
                     <div className="flex items-center opacity-0 group-hover:opacity-100 font-medium text-blue-600 text-sm transition-all translate-y-2 group-hover:translate-y-0 duration-300 transform">
                         <span>Read more</span>
