@@ -13,9 +13,9 @@ import Signup from './pages/Signup'
 import EditPost from "./pages/EditPost";
 import Home from "./pages/Home";
 import About from "./pages/About";
-
+import Terms from "./privacy/Terms.jsx"
 import Post from "./pages/Post";
-
+import PrivacyPolicy from './privacy/PrivacyPolicy.jsx'
 import AllPosts from "./pages/AllPost";
 const router = createBrowserRouter([
 
@@ -24,6 +24,15 @@ const router = createBrowserRouter([
     element: <About />,
     errorElement: <div>Page not found</div>
   },
+  {
+    path: '/privacy-policy',
+    element: <PrivacyPolicy />
+  },
+  {
+    path: "/terms",
+    element: <Terms />
+  },
+  {},
   {
     path: "/",
     element: <App />,

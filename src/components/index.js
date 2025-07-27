@@ -1,5 +1,4 @@
 import Header from "./Header/Header";
-import Container from "./container/Container";
 import Footer from "./Footer/footer";
 import Logo from "./Logo";
 import LogoutButton from "./Header/logoutButton";
@@ -12,6 +11,8 @@ import Login from "./Login";
 import PostForm from './post-form/PostForm'
 import PostCard from './PostCard';
 import Protected from './AuthLayout';
+import Container from './container/Container';
+
 
 
 export {
