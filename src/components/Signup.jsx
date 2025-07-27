@@ -11,6 +11,15 @@ function Signup() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm("");
+    const handleGoogleLogin = async () => {
+        try {
+            await AuthClassObject.loginWithGoogle();
+            // Appwrite will redirect to the OAuth2 callback URL
+        } catch (error) {
+            console.error("Google login failed:", error);
+            setError("Google login failed");
+        }
+    };
 
     const SignupUser = async (data) => {
         setError('');
@@ -79,6 +88,21 @@ function Signup() {
                             <p>SIGN UP →</p>
                         </Button>
                     </form>
+                    <div className='flex flex-col justify-center items-center py-4'>
+                        <h3 className='py-3 font-bold'>Signup with google</h3>
+                        <button
+                            onClick={handleGoogleLogin}
+                            className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10 cursor-pointer"
+                        >
+                            <img
+                                src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                                alt="Google"
+                                className="w-5 h-5"
+                            />
+                        </button>
+
+                    </div>
+
 
                     <p className="mt-6 text-gray-500 text-sm text-center">
                         Already have an account?{' '}

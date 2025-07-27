@@ -27,6 +27,20 @@ class AuthClass {
             throw error;
         }
     }
+
+    async loginWithGoogle() {
+        try {
+            await this.account.createOAuth2Session(
+                'google',
+                `${window.location.origin}/`,         // Success Redirect
+                `${window.location.origin}/login`     // Failure Redirect
+            );
+        } catch (error) {
+            console.error("OAuth login error:", error);
+            throw error;
+        }
+    }
+
     async login({ email, password }) {
         try {
             return await this.account.createEmailPasswordSession(email, password)

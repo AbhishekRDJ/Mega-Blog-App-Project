@@ -32,7 +32,7 @@ export default function Header() {
                 <button
                     key={link.name}
                     onClick={() => handleNavigation(link.href)}
-                    className="font-medium text-gray-700 hover:text-blue-600 transition"
+                    className="font-medium text-gray-700 hover:text-blue-600 transition cursor-pointer"
                 >
                     {link.name}
                 </button>

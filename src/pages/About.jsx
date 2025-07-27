@@ -1,11 +1,17 @@
 import React from 'react';
-import { User, Mail, MapPin, Calendar, Heart, Coffee, Code, Pen } from 'lucide-react';
+import { User, Mail, MapPin, Calendar, Heart, Coffee, Code, Pen, Backpack, SkipBack, ArrowBigLeft, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+    const navigate = useNavigate()
     return (
         <div className="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
             <div className="mx-auto px-6 py-12 max-w-4xl">
                 {/* Header Section */}
+                <button onClick={() => navigate(-1)} className='flex gap-1.5 w-fit'>
+                    <ArrowLeft />
+                    <p>Back</p>
+                </button>
                 <div className="mb-16 text-center">
                     <div className="inline-block relative mb-6">
                         <div className="flex justify-center items-center bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl mx-auto rounded-full w-32 h-32">

@@ -9,10 +9,20 @@ import Spline from '@splinetool/react-spline';
 
 
 function Login() {
+
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm("");
+    const handleGoogleLogin = async () => {
+        try {
+            await AuthClassObject.loginWithGoogle();
+            // Appwrite will redirect to the OAuth2 callback URL
+        } catch (error) {
+            console.error("Google login failed:", error);
+            setError("Google login failed");
+        }
+    };
 
     const LoginUser = async (data) => {
         setError('');
@@ -79,15 +89,23 @@ function Login() {
                     <div className="my-6 text-gray-500 text-sm text-center">or continue with</div>
 
                     <div className="flex justify-center gap-4">
-                        <button className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10">
-                            <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google" className="w-5 h-5" />
+                        <button
+                            onClick={handleGoogleLogin}
+                            className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10 cursor-pointer"
+                        >
+                            <img
+                                src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                                alt="Google"
+                                className="w-5 h-5"
+                            />
                         </button>
-                        <button className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10">
+
+                        {/* <button className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10">
                             <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" className="w-5 h-5" />
                         </button>
                         <button className="flex justify-center items-center hover:bg-gray-100 p-2 border rounded-full w-10 h-10">
                             <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" className="w-5 h-5" />
-                        </button>
+                        </button> */}
                     </div>
 
                     <p className="mt-4 text-gray-500 text-sm text-center">

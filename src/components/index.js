@@ -1,4 +1,4 @@
-import Header from "./Header/header";
+import Header from "./Header/Header";
 import Container from "./container/Container";
 import Footer from "./Footer/footer";
 import Logo from "./Logo";
