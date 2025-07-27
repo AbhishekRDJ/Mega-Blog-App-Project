@@ -70,7 +70,7 @@ function Home() {
                             <h1 className="mb-6 font-bold text-white text-5xl md:text-6xl leading-tight">
                                 Welcome to{' '}
                                 <span className="bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300 text-transparent">
-                                    DevBlog
+                                    BlogSphere
                                 </span>
                             </h1>
                             <p className="mx-auto mb-8 max-w-2xl font-medium text-blue-100 text-xl leading-relaxed">
