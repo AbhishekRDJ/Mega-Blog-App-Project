@@ -8,17 +8,16 @@
   </a>
 </p>
 
-![BlogSpher Preview](https://github.com/AbhishekRDJ/Mega-Blog-App-Project/assets/100703816/24220268-f938-4229-873b-550267784650)
+![BlogSpher Preview](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/public/image3.png)
 
 *A cutting-edge blog platform combining modern web technologies with immersive 3D experiences*
 
-## 📸 Screenshots
 
 ## 📸 Screenshots
 
 | Google Auth | Home Page   | Posts         |Add post       |
 |-------------|-------------|---------------|---------------|
-| ![image](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/public/image.png) | ![image2](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/main/public/image3.png) | ![image3](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/main/public/image4.png) |
+| ![image](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/public/image.png) | ![image3](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/public/image3.png) | ![image4](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/public/image4.png) | ![image5](https://raw.githubusercontent.com/AbhishekRDJ/Mega-Blog-App-Project/main/public/image5.png)
 
 
 ## 🌟 Features
