@@ -15,10 +15,17 @@ class AuthClass {
     async createAccount({ email, password, name }) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
-            if (userAccount) {
-                // Optionally, auto login the user here
-                return this.login({ email, password })
 
+            if (userAccount) {
+                // 🔐 Clear existing session if any
+                try {
+                    await this.account.deleteSession('current');
+                } catch (sessionError) {
+                    console.warn("No session to delete or already logged out:", sessionError.message);
+                }
+
+                // 🔐 Now login the new user
+                return await this.login({ email, password });
             } else {
                 return null;
             }

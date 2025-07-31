@@ -27,8 +27,9 @@ function Signup() {
             const UserData = await AuthClassObject.createAccount(data);
             if (UserData) {
                 const userData = await AuthClassObject.getCurrentUser();
-                if (userData) dispatch(logoutService(userData));
-                navigate("/login");
+                console.log('1')
+                if (userData) { dispatch(logoutService(userData)); }
+                navigate("/");
             }
         } catch (error) {
             console.log("Signup Error: ", error);
